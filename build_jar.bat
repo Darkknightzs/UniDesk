@@ -35,28 +35,20 @@ if %ERRORLEVEL% neq 0 (
     exit /b %ERRORLEVEL%
 )
 
-echo [2/3] Bundling dependencies and icon assets...
+echo [2/3] Bundling dependencies...
 if exist "lib\flatlaf.jar" (
     cd out
     "%JAR_CMD%" xf "..\lib\flatlaf.jar"
     cd ..
 )
-if exist "UniDesk.ico" copy /y "UniDesk.ico" "out\" >nul
-if exist "UniDesk.png" copy /y "UniDesk.png" "out\" >nul
 
 echo [3/3] Creating standalone UniDesk.jar...
 "%JAR_CMD%" cfm UniDesk.jar manifest.txt -C out .
-
-if exist "create_shortcut.ps1" (
-    echo [4/4] Generating desktop/folder shortcut with custom icon...
-    powershell -ExecutionPolicy Bypass -File "%~dp0create_shortcut.ps1"
-)
 
 if exist "UniDesk.jar" (
     echo.
     echo ========================================================
     echo  SUCCESS! Created self-contained executable UniDesk.jar
-    echo  Created custom icon shortcut: UniDesk.lnk
     echo  You can share UniDesk.jar directly with your teacher.
     echo ========================================================
     echo.

@@ -22,10 +22,11 @@ A modern desktop **Student Information System** built strictly using core **Java
 
 ```
 UniDesk/
+├── data/
+│   ├── students.csv          # Auto-persisted dataset (115 scholars across 5 courses)
+│   └── teachers.csv          # Auto-persisted faculty dataset (27 faculty members)
 ├── lib/
-│   └── flatlaf.jar           # Optional FlatLaf Look & Feel
-├── out/
-│   └── sis/                  # Compiled .class binaries
+│   └── flatlaf.jar           # Modern FlatLaf Look & Feel
 ├── sis/
 │   ├── Person.java           # Abstract base class (Encapsulation, Validation)
 │   ├── Student.java          # Student subclass (Course, Marks, Grade, Status)
@@ -43,8 +44,7 @@ UniDesk/
 ├── run.bat                   # 1-Click compiler and launcher script
 ├── run.ps1                   # PowerShell runner script
 ├── build_jar.bat             # Standalone executable JAR packager
-├── students.csv              # Auto-persisted dataset (115 preloaded scholars across 5 branches)
-├── teachers.csv              # Auto-persisted faculty dataset (27 faculty members)
+├── manifest.txt              # JAR Manifest configuration
 └── README.md                 # Documentation
 ```
 

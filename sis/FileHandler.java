@@ -19,8 +19,9 @@ import java.util.Map;
  */
 public class FileHandler {
 
-    public static final String DEFAULT_CSV_FILE = "students.csv";
-    public static final String DEFAULT_TEACHERS_CSV_FILE = "teachers.csv";
+    public static final String DATA_DIR = "data";
+    public static final String DEFAULT_CSV_FILE = "data" + File.separator + "students.csv";
+    public static final String DEFAULT_TEACHERS_CSV_FILE = "data" + File.separator + "teachers.csv";
     private static final String CSV_HEADER = "RollNo,Name,Age,Phone,Address,Course,Marks";
     private static final String TEACHERS_CSV_HEADER = "TeacherID,Name,Age,Phone,Address,Subject";
 
@@ -48,36 +49,42 @@ public class FileHandler {
      */
     public static void initializeData(StudentManager manager) {
         File file = new File(DEFAULT_CSV_FILE);
+        if (!file.exists() && new File("students.csv").exists()) {
+            file = new File("students.csv");
+        }
         if (file.exists()) {
             try {
                 loadFromCsv(file, manager);
             } catch (Exception e) {
-                System.err.println("Warning: Auto-load from " + DEFAULT_CSV_FILE + " failed: " + e.getMessage());
+                System.err.println("Warning: Auto-load from " + file.getPath() + " failed: " + e.getMessage());
             }
         }
 
         if (manager.getTotalCount() < 10) {
             preloadRichStudentDataset(manager);
             try {
-                saveToCsv(file, manager);
+                saveToCsv(new File(DEFAULT_CSV_FILE), manager);
             } catch (Exception e) {
                 System.err.println("Warning: Could not save expanded dataset: " + e.getMessage());
             }
         }
 
         File teacherFile = new File(DEFAULT_TEACHERS_CSV_FILE);
+        if (!teacherFile.exists() && new File("teachers.csv").exists()) {
+            teacherFile = new File("teachers.csv");
+        }
         if (teacherFile.exists()) {
             try {
                 loadTeachersFromCsv(teacherFile, manager);
             } catch (Exception e) {
-                System.err.println("Warning: Auto-load from " + DEFAULT_TEACHERS_CSV_FILE + " failed: " + e.getMessage());
+                System.err.println("Warning: Auto-load from " + teacherFile.getPath() + " failed: " + e.getMessage());
             }
         }
 
         if (manager.getAllTeachers().isEmpty()) {
             preloadFacultyDataset(manager);
             try {
-                saveTeachersToCsv(teacherFile, manager);
+                saveTeachersToCsv(new File(DEFAULT_TEACHERS_CSV_FILE), manager);
             } catch (Exception e) {
                 System.err.println("Warning: Could not save faculty dataset: " + e.getMessage());
             }
@@ -282,6 +289,9 @@ public class FileHandler {
     }
 
     public static void saveTeachersToCsv(File targetFile, StudentManager manager) throws Exception {
+        if (targetFile.getParentFile() != null && !targetFile.getParentFile().exists()) {
+            targetFile.getParentFile().mkdirs();
+        }
         try (BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(targetFile), StandardCharsets.UTF_8))) {
             writer.write(TEACHERS_CSV_HEADER);
@@ -344,6 +354,9 @@ public class FileHandler {
     }
 
     public static void saveToCsv(File targetFile, StudentManager manager) throws Exception {
+        if (targetFile.getParentFile() != null && !targetFile.getParentFile().exists()) {
+            targetFile.getParentFile().mkdirs();
+        }
         try (BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(targetFile), StandardCharsets.UTF_8))) {
             writer.write(CSV_HEADER);
