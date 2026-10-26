@@ -1,72 +1,110 @@
-# 🏫 UniDesk - Student Information System (SIS)
-### Production-Grade Desktop Application in Java & Swing
+# 🏫 UniDesk - Student Information System
 
-A modern desktop **Student Information System** built strictly using core **Java (JDK 21 LTS)** and **Java Swing** with zero external build tools (no Maven, no Gradle). All GUI components, vector graphics, chart animations, and design theming are unified into [`MainFrame.java`](file:///c:/Users/Dark/Documents/code/UniDesk/sis/MainFrame.java).
-
----
-
-## 🎨 New Features: UniDesk Brand Logo & Smooth Animations
-
-1. **Official UniDesk Vector Logo**:
-   - Scalable vector logo featuring a modern royal-to-navy squircle badge, graduation mortarboard diamond with 3D facet lighting, golden tassel ribbon, open academic knowledge book, and gold center excellence star.
-   - Displayed prominently in the main header bar and set as multi-resolution native window & taskbar icon (`setIconImages`).
-2. **60 FPS Bar Chart Rise Animation**:
-   - When switching to the **Analytics Dashboard** tab or when records are updated, the grade distribution bars smoothly rise from zero with a cubic ease-out interpolation (`1 - (1-t)^3`).
-   - Bar labels and percentages fade in smoothly as the bars reach full height.
-3. **Stat Cards Animated Count-Up**:
-   - The primary metrics (**Total Enrolled**, **Average Marks**, **Passing Rate**) animate and count up dynamically from zero upon dashboard display.
+A modern, high-performance desktop **Student Information System (SIS)** built using pure **Java (JDK 21 LTS)** and **Java Swing**. UniDesk provides comprehensive student enrollment, faculty records, academic performance analytics, and dynamic light/dark theming without relying on heavy external frameworks or complex build systems.
 
 ---
 
-## 📂 Project Structure (`sis` package)
+## ✨ Features
 
-```
+- **🎓 Student Directory & Record Management**:
+  - Full CRUD operations (Add, Update, Search, Delete) for student records.
+  - University-style roll number generation (e.g., Year + Course Code + Scholar ID).
+  - Instant live search by Roll Number, Name, Course, or Contact details.
+  - Stream-specific filtering (BCA, B.Tech, MCA, BBA, B.Com) and automatic stream topper recognition.
+
+- **👨‍🏫 Faculty Directory**:
+  - Manage faculty profiles, departmental allocations, subjects taught, and contact information.
+  - Dedicated search and filtering across academic departments.
+
+- **📊 Real-Time Analytics Dashboard**:
+  - Summary metric cards: Total Enrolled Scholars, Batch Average Marks, Passing Percentage, and Top Performers.
+  - Interactive Course Breakdown table with enrolled counts, average performance, and stream toppers.
+  - Java2D animated Grade Distribution Bar Chart (Grades A+, A, B, C, F) with smooth cubic easing.
+
+- **🌓 Dynamic Design & Theme Engine**:
+  - Built-in **Dark Mode** and **Light Mode** switch with instant UI update.
+  - Settings auto-saved across application launches.
+  - Multi-resolution vector application branding rendered natively with Java2D graphics.
+
+- **💾 Data Persistence & Portability**:
+  - Auto-persists student and faculty datasets in CSV format under the `data/` directory.
+  - Bulk CSV Import and Export capabilities for easy data migration and backups.
+  - Automatic directory initialization and robust schema validation.
+
+---
+
+## 🛠️ Technology Stack & OOP Concepts
+
+- **Language**: Java (JDK 17+ / JDK 21 LTS recommended)
+- **GUI Framework**: Java Swing & Java2D graphics engine
+- **Look & Feel**: [FlatLaf](https://www.formdev.com/flatlaf/) for modern, flat cross-platform styling
+- **Object-Oriented Programming (OOP) Principles**:
+  - **Abstraction**: Abstract `Person` base class defining core identity contracts.
+  - **Inheritance & Polymorphism**: `Student` and `Teacher` extend `Person` with specialized attributes and behaviors.
+  - **Encapsulation**: Strict property validation (roll numbers, phone formatting, marks constraints, age bounds).
+  - **Layered Architecture**: Clear separation between Data Models, Business Logic (`StudentManager`), Storage (`FileHandler`), and UI (`MainFrame`).
+
+---
+
+## 📂 Project Structure
+
+```text
 UniDesk/
 ├── data/
-│   ├── students.csv          # Auto-persisted dataset (115 scholars across 5 courses)
-│   └── teachers.csv          # Auto-persisted faculty dataset (27 faculty members)
+│   ├── students.csv          # Persisted student database
+│   └── teachers.csv          # Persisted faculty database
 ├── lib/
-│   └── flatlaf.jar           # Modern FlatLaf Look & Feel
-├── sis/
-│   ├── Person.java           # Abstract base class (Encapsulation, Validation)
-│   ├── Student.java          # Student subclass (Course, Marks, Grade, Status)
-│   ├── Teacher.java          # Faculty subclass (ID, Specialization)
-│   ├── StudentManager.java   # Business logic, collections, cohort analytics (No GUI)
-│   ├── FileHandler.java      # CSV persistence, bulk I/O, printable reports
-│   ├── MainFrame.java        # UNIFIED GUI LAYER:
-│   │                         #   • MainFrame (Window, 3 Tabs, Tables, Forms, Badges)
-│   │                         #   • UniDesk Official Vector Logo & Icon Engine
-│   │                         #   • 60fps Smooth Chart Rise & Metric Count-Up Animations
-│   │                         #   • ThemeManager (Light/Dark design system & styles)
-│   │                         #   • BarChartPanel (Java2D animated grade distribution)
-│   │                         #   • LookAndFeel setup & GUI main launcher
-│   └── Main.java             # Entry point (delegates to MainFrame)
-├── run.bat                   # 1-Click compiler and launcher script
+│   └── flatlaf.jar           # Modern Look & Feel library
+├── sis/                      # Source package
+│   ├── Person.java           # Abstract base class
+│   ├── Student.java          # Student model
+│   ├── Teacher.java          # Faculty model
+│   ├── StudentManager.java   # Collections, queries, & analytics logic
+│   ├── FileHandler.java      # CSV persistence, parsing, & validation
+│   ├── MainFrame.java        # Modern Swing GUI, vector icons, & charts
+│   └── Main.java             # Entry point launcher
+├── run.bat                   # 1-Click Windows batch launcher
 ├── run.ps1                   # PowerShell runner script
 ├── build_jar.bat             # Standalone executable JAR packager
-├── manifest.txt              # JAR Manifest configuration
-└── README.md                 # Documentation
+├── manifest.txt              # Manifest configuration
+└── README.md                 # Project documentation
 ```
 
 ---
 
-## 🚀 Running the Application
+## ⚙️ System Requirements
 
-### 1-Click Launch (Recommended)
+- **Operating System**: Windows, macOS, or Linux
+- **Java Runtime**: JDK 17 or JDK 21+ installed and configured on your system `PATH`
+
+---
+
+## 🚀 Getting Started
+
+### 1. 1-Click Launch (Windows)
+Double-click `run.bat` or execute in PowerShell:
 ```powershell
 .\run.bat
+# or
+.\run.ps1
 ```
 
-### Manual Compile & Run
+### 2. Manual Compile & Run
+Compile all classes and launch using `javac` and `java`:
 ```bash
-# 1. Compile with plain javac
-javac -d out sis/*.java
+# Compile
+javac -cp "lib/*" -d out sis/*.java
 
-# 2. Run with FlatLaf
+# Run
 java -cp "out;lib/*" sis.Main
-# OR directly:
-java -cp "out;lib/*" sis.MainFrame
+```
 
-# Or run without external libraries (Nimbus fallback)
-java -cp out sis.Main
+### 3. Build Standalone JAR
+To create a self-contained executable JAR for distribution:
+```cmd
+build_jar.bat
+```
+Run the generated JAR directly:
+```bash
+java -jar UniDesk.jar
 ```
