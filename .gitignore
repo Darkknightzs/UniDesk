@@ -1,0 +1,25 @@
+# Java Build Output
+out/
+bin/
+*.class
+
+# Runtime Settings & Logs
+settings.properties
+*.log
+*.tmp
+
+# Windows local shortcuts
+*.lnk
+
+# IDE & Editor Configuration
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS specific files
+Thumbs.db
+Desktop.ini
+.DS_Store

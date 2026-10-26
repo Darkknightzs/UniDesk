@@ -1,0 +1,28 @@
+TeacherID,Name,Age,Phone,Address,Subject
+FAC-101,Shivam Sood,30,9811223344,"Model Town, Ludhiana, Punjab",Full Stack Development
+FAC-102,Rahul Soni,32,9822334455,"Sarabha Nagar, Ludhiana, Punjab",Cloud Computing
+FAC-103,Iqra Nazir,28,9833445566,"BRS Nagar, Ludhiana, Punjab",Data Structures & Algorithms
+FAC-104,Ripandeep Kaur,34,9844556677,"Civil Lines, Ludhiana, Punjab",Computer System Architecture
+FAC-105,Anushka Mohal,29,9855667788,"Dugri Phase 1, Ludhiana, Punjab",Programming in Java
+FAC-106,Navjot Kaur,31,9866778899,"Pakhowal Road, Ludhiana, Punjab",PHP & Web Development
+FAC-201,Dr. Harpreet Singh Bedi,45,9871112233,"Sector 70, Mohali, Punjab",Engineering Mathematics
+FAC-202,Prof. Amarjeet Kaur,40,9872223344,"Phase 7, Mohali, Punjab",Digital Electronics
+FAC-203,Er. Gurpreet Singh Sandhu,38,9873334455,"Model Town, Jalandhar, Punjab",Operating Systems
+FAC-204,Dr. Manish Arora,47,9874445566,"Urban Estate, Patiala, Punjab",Computer Networks
+FAC-205,Prof. Neha Sharma,35,9875556677,"Ranjit Avenue, Amritsar, Punjab",Software Engineering
+FAC-206,Er. Vikrant Thakur,33,9876667788,"Mall Road, Kapurthala, Punjab",Compiler Design
+FAC-301,Dr. Sukhwinder Kaur,44,9881112233,"Phase 3B2, Mohali, Punjab",Advanced Database Management
+FAC-302,Prof. Rajeev Bansal,41,9882223344,"Leela Bhawan, Patiala, Punjab",Machine Learning & AI
+FAC-303,Dr. Priyanka Mehta,39,9883334455,"Lawrence Road, Amritsar, Punjab",Distributed Systems
+FAC-304,Prof. Deepak Kumar Joshi,43,9884445566,"GT Road, Bathinda, Punjab",Advanced Java & Frameworks
+FAC-305,Dr. Jasleen Kaur Bhatia,37,9885556677,"Court Road, Hoshiarpur, Punjab",Cyber Security & Cryptography
+FAC-401,Dr. Parveen Kumar Goyal,50,9891112233,"Baradari Gardens, Patiala, Punjab",Business Strategy & Analytics
+FAC-402,Prof. Simran Kaur Gill,36,9892223344,"Green Avenue, Amritsar, Punjab",Marketing Management
+FAC-403,Dr. Rohit Verma,42,9893334455,"Ghumar Mandi, Ludhiana, Punjab",Financial Management
+FAC-404,Prof. Amanpreet Kaur,34,9894445566,"Cantt Road, Jalandhar, Punjab",Organizational Behaviour
+FAC-405,Dr. Naveen Sharma,48,9895556677,"Main Bazaar, Moga, Punjab",Business Communication
+FAC-501,Dr. Kuldeep Singh Randhawa,52,9901112233,"Model Town Phase 3, Bathinda, Punjab",Corporate Accounting
+FAC-502,Prof. Meenakshi Devi,38,9902223344,"Majitha Road, Amritsar, Punjab",Business Law & Taxation
+FAC-503,Dr. Rajinder Pal Singh,46,9903334455,"Samrala Road, Khanna, Punjab",Cost & Management Accounting
+FAC-504,Prof. Anita Kumari,40,9904445566,"Dalhousie Road, Pathankot, Punjab",Economics & Statistics
+FAC-505,Dr. Balwinder Kaur,44,9905556677,"College Road, Rupnagar, Punjab",Auditing & Corporate Governance
